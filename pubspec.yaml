@@ -1,0 +1,38 @@
+name: be_star
+description: A new Flutter project.
+
+publish_to: 'none' 
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  dio: ^3.0.9
+  flutter_mobx: ^1.1.0
+  mobx: ^1.1.1
+  flutter_modular: ^1.1.2
+  flutter:
+    sdk: flutter
+  firebase_auth: ^0.16.0
+  google_sign_in: ^4.4.4
+  cloud_firestore: ^0.13.5
+  firebase_storage: ^3.1.5
+  firebase_core: ^0.4.4+3
+dev_dependencies:
+  mockito: ^4.1.1
+  mobx_codegen: ^1.0.3
+  build_runner: ^1.9.0
+  flutter_test:
+    sdk: flutter
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
