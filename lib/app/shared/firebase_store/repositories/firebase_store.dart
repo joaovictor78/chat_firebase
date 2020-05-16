@@ -7,21 +7,19 @@ class FirebaseStore implements IFirebaseStore{
   final IAuthRepository _authRepository = Modular.get();
    @override
     Future getMyUser() async {
-    if(_authRepository.currentUser() != null){
-    final QuerySnapshot result  = await Firestore.instance.collection('users').where('id', isEqualTo: _authRepository.currentUser().toString()).getDocuments();
+    if((await _authRepository.currentUser()) != null){
+    final QuerySnapshot result  = await Firestore.instance.collection('users').where('id', isEqualTo: (await _authRepository.currentUser())).getDocuments();
     final List<DocumentSnapshot> documents = result.documents;
       if (documents.length == 0) {
-          Firestore.instance.collection('users').document(_authRepository.currentUser().toString()).setData({'name' : _authRepository.getGoogleLogin().then((value) => value.displayName)});
+          Firestore.instance.collection('users').document( await _authRepository.currentUser()).setData({'name' : _authRepository.getGoogleLogin().then((value) => value.displayName)});
          }
     }
   }
-
   @override
-   Future getUsers() async {
+  getUsers() async {
    final Stream<QuerySnapshot> result =  Firestore.instance.collection('users').snapshots();
    final users = result.listen((data) =>
         data.documents.forEach((doc) => print(doc['name'])));
    return users;
   }
-
 }
