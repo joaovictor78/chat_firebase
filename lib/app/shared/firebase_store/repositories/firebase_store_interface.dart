@@ -1,5 +1,7 @@
 
+import 'package:be_star/app/shared/models/user_model.dart';
+
 abstract class IFirebaseStore {
  Future getMyUser() {}
- Future getUsers() {}
+ Stream<List<UserModel>> getUsers() {}
 }

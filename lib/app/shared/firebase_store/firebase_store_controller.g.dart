@@ -50,11 +50,18 @@ mixin _$FirebaseStoreController on _FirebaseStoreControllerBase, Store {
     return _$getMyUserAsyncAction.run(() => super.getMyUser());
   }
 
-  final _$getUsersAsyncAction = AsyncAction('getUsers');
+  final _$_FirebaseStoreControllerBaseActionController =
+      ActionController(name: '_FirebaseStoreControllerBase');
 
   @override
-  Future getUsers() {
-    return _$getUsersAsyncAction.run(() => super.getUsers());
+  Stream<List<UserModel>> getUsers() {
+    final _$actionInfo =
+        _$_FirebaseStoreControllerBaseActionController.startAction();
+    try {
+      return super.getUsers();
+    } finally {
+      _$_FirebaseStoreControllerBaseActionController.endAction(_$actionInfo);
+    }
   }
 
   @override

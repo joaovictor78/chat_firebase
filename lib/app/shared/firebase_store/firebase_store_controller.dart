@@ -1,5 +1,6 @@
 import 'package:be_star/app/shared/auth/auth_controller.dart';
 import 'package:be_star/app/shared/firebase_store/repositories/firebase_store_interface.dart';
+import 'package:be_star/app/shared/models/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
@@ -21,8 +22,9 @@ getMyUser() async {
  myUser = await firebaseStore.getMyUser();
 }
 @action
-getUsers() async {
- users = await firebaseStore.getUsers();
+Stream<List<UserModel>> getUsers()  {
+ return users =  firebaseStore.getUsers();
+ 
 }    
 
 }
