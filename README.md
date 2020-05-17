@@ -17,4 +17,4 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 =======
 # chat_firebase
->>>>>>> d0468b4b90bd2fd54a169ac7abe9fdaeda506e0c
+>>>>>>>
