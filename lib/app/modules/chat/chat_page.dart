@@ -14,9 +14,9 @@ class _ChatPageState extends ModularState<ChatPage, ChatController> {
   @override
   void initState() {
     print(widget.userSelected);
-    ChatController(userSelected: widget.userSelected);
     super.initState();
   }
+
   //use 'controller' variable to access controller
   @override
   Widget build(BuildContext context) {
@@ -43,11 +43,11 @@ class _ChatPageState extends ModularState<ChatPage, ChatController> {
                     hintStyle: new TextStyle(color: Colors.grey[800]),
                     hintText: "Digite uma mensagem...",
                     fillColor: Colors.white70),
-                    onChanged: controller.getMensagem,
+                onChanged: controller.getMensagem,
               )),
               IconButton(
                   icon: Icon(Icons.send, color: Colors.blue, size: 38),
-                  onPressed: (){}),
+                  onPressed: () {}),
             ],
           ),
           Container(
